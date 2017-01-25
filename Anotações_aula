@@ -1,0 +1,66 @@
+---------------------------------------------------
+------------------Instalando git-------------------
+---------------------------------------------------
+apt-get install git
+---------------------------------------------------
+
+---------------------------------------------------
+-----------Setando o Nome e o Email----------------
+---------------------------------------------------
+git config --global user.name "Luciano Vieira"
+git config --global user.email "lucianovsjr@gmail.com"
+---------------------------------------------------
+
+---------------------------------------------------
+------Criando um arquivo para versionamento--------
+---------------------------------------------------
+criar pasta: mkdir meus_arquivos
+criar arquivo: touch arq1.txt
+escrever: echo "meu arquivo" >> arq1.txt
+ler: cat arq1.txt
+---------------------------------------------------
+
+*Criando um repositorio vazio: git init
+*Verificar situação dos arquivos no rep.: git status
+*colocar o arq. rastreavel: git add arq1.txt
+*Gravar arq no rep.: git commit -m "arquivo inicial"
+*Alteração: git add arq1.txt; git commit -m "alteracao"
+*Verificar alterações: git log
+*Apontando o projeto para o github: git remote add origin https://github.com/lucianovsjr/curso_git.git
+*Enviar alterações para o Git: git push origin master
+*Obter o projeto do GitHub: git clone https://github.com/lucianovsjr/curso_git.git
+*Rastrear todos os arquivos: git add .
+*Ignorando arquivos:
+	- criar arquivo: touch .gitignore
+	- Add arquivo ignorado: echo "stage" >> .gitignore
+	- add pasta: echo "pasta/" >> .gitignore
+	- add iniciais: echo "*pyc" >> .gitignore
+*Commit e rastrear ao mesmo tempo: git commit -am "modific"
+*Historico:
+	- tres ultimos commits: git log -n 3
+	- Resumo commits: git log --oneline
+	- numero de linhas add e remov: git log --stat
+*Removendo arquivos: git rm aa (Já adicionado no stage, sem necessidade de git add)
+*Renomear arquivo: git mv arq3.txt arq0.txt (Já adicionado no stage, sem necessidade de git add)
+*Desfazendo mudanças não rastreadas: git checkout -- arq1.txt
+*Desfazendo arquivos deletados não rastreados: git checkout head arq1.txt
+*Desfazendo mudanças rastreadas: git reset --hard
+*Desfazendo mudanças commitadas: 
+	-Desfaz ultimo commit: git reset HEAD~1
+	-desfaz em stage: git reset --hard
+*GitHub:
+	- para contribuir: clicar em fork
+	- clonar do repositorio seu para não dar permissão negada
+	- para que contribuir: basta clicar em pull request. o proprietario
+	ira receber uma notificação, caso ele gostei ele goste, ele ira integrar
+	o commit
+*Branch: trabalhar em paralelo, uma versão em paralelo do projeto.
+	-Lista branchs: git branch
+	-Criar novo branch: git branch luciano 
+	-Trocar branch: git checkout luciano
+	-criando e trocando de branch: git checkout -b dev
+	-deletar branch: git branch -d dev (Caso tenha commit, utilizar "-D")
+*Mesclando Branch
+	-Trocar para branch master
+	-Verificar se existe branch diferentes da master: git branch --no-merged
+	-mesclar branch: git merge luciano -m "mesclando branch"
